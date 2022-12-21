@@ -1,5 +1,6 @@
 package com.tutorial.crud.service;
 import com.tutorial.crud.entity.OrganizacionesNueva;
+import com.tutorial.crud.entity.Persona;
 import com.tutorial.crud.repository.NuevoOrgRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,11 @@ public class NuevaOrgService implements INuevaOrg {
     public OrganizacionesNueva save(OrganizacionesNueva organizacionesNueva) {
         return nuevoOrgRepository.save(organizacionesNueva);
     }
+    public int add(OrganizacionesNueva organizacionesNueva){
 
+        nuevoOrgRepository.save(organizacionesNueva);
+        return organizacionesNueva.getIdos();
+    }
 
     @Override
     public List<OrganizacionesNueva> getAllOrganizaciones() {
@@ -26,8 +31,8 @@ public class NuevaOrgService implements INuevaOrg {
     }
 
 
-//    public boolean existsBynombre(String Nombre_os){
-//        return nuevoOrg.existsByNombre_os(Nombre_os);
+//    public boolean existsBynombre(String NombreOs){
+//        return nuevoOrgRepository.existsByNombreOs(Nombre_os);
 //    }
 
 

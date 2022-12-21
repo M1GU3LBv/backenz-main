@@ -13,7 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Accessors(chain=true)
+@Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -21,17 +21,22 @@ import java.util.List;
 public class Solicitud implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idsolicitud;
     @ManyToOne
-    @JoinColumn(name="idos",nullable=false)
+    @JoinColumn(name = "idos", nullable = false)
     private Organizaciones organizaciones;
+
     private String estado;
     private String f_ingreso;
+
     private String n_expediente;
+    @Column(columnDefinition = "varchar(255) default 'Registro'")
+    private String tipo;
+    @Column(columnDefinition = "date")
     private String i_gob;
-    private String razon_solicitud;
+    private String f_gob;
     @JsonIgnore
-    @OneToMany(mappedBy="solicitud")
+    @OneToMany(mappedBy = "solicitud")
     private List<Registro> registro;
 }

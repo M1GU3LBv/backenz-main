@@ -17,7 +17,7 @@ import com.tutorial.crud.security.service.UsuarioService;
 
 @RestController
 @RequestMapping("/profile")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class ProfileController {
 
     @Autowired

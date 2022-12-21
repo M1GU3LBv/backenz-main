@@ -26,6 +26,7 @@ public class Parametros implements Serializable {
     private int idparametros;
     private String tipoparametro;
     private String nombre;
+
     @JsonIgnore
     @OneToMany (mappedBy = "parametros_nivel")
     private List<Organizaciones>Organizaciones;

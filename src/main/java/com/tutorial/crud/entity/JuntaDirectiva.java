@@ -29,9 +29,7 @@ public class JuntaDirectiva implements Serializable {
     @ManyToOne
     @JoinColumn(name="idsolicitud",nullable=false)
     private Solicitud solicitud;
-    @ManyToOne
-    @JoinColumn(name="idparametrocargo",nullable=false)
-    private Parametros parametros;
+   
 
 
 }

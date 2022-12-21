@@ -51,9 +51,6 @@ public class OrganizacionController {
 
     @PostMapping(value="/nueva")
     public ResponseEntity<?> create(@RequestBody OrganizacionesNueva organizacionesNueva){
-
-
-
         if(StringUtils.isBlank(organizacionesNueva.getNombre_os()))
             return new ResponseEntity(new Mensaje("el nombre es obligatorio"), HttpStatus.BAD_REQUEST);
 //        if(organizacionesDto.get()==null || organizacionesDto.getPrecio()<0 )
@@ -62,8 +59,8 @@ public class OrganizacionController {
 //            return new ResponseEntity(new Mensaje("ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         OrganizacionesNueva org = new OrganizacionesNueva(organizacionesNueva.getIdos(),organizacionesNueva.getNombre_os(),organizacionesNueva.getIdparametro_zona(),organizacionesNueva.getIdparametro_tipo_os(),
                 organizacionesNueva.getEstado(),organizacionesNueva.getIdparametro_nivel());
-        nuevaOrgService.save(org);
-        return new ResponseEntity(new Mensaje("producto creado"), HttpStatus.OK);
+        int id = nuevaOrgService.add(org);
+        return new ResponseEntity(new Mensaje(String.valueOf(id)), HttpStatus.OK);
     }
 
 

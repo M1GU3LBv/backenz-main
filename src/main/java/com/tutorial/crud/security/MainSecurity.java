@@ -59,6 +59,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/profile/**").permitAll()
+                .antMatchers("/process/**").permitAll()
                 .antMatchers("/api/**").permitAll()
                 .antMatchers("/organizaciones/**").permitAll()
                 .antMatchers("/auth/**").permitAll()
@@ -70,4 +71,5 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NuevoOrgRepository extends JpaRepository<OrganizacionesNueva, Integer> {
-//    Boolean existsByNombre_os(String Nombre_os);
+//    Boolean existsByNombreOs(String NombreOs);
 }

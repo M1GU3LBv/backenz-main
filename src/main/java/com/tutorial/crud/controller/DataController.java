@@ -25,7 +25,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class DataController {
